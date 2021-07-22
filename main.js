@@ -210,77 +210,107 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
-/*
-  const cats = pets.filter(pet => {
-    let isCat = false;
 
-    if (pet.type === "cat") {
-      isCat = true;
-    }
+// Display all pets by default
+const outEl = document.querySelector("#output");
+outEl.innerHTML = "<h1>Pet Adoption</h1>";
 
-    return isCat;
-  })
-
-  cats.forEach(cat => {
-    const outEl = document.querySelector("#output");
-    outEl.innerHTML = "<h1>Pet Adoption</h1>";
-
-    pets.forEach(pet => {
-      outEl.innerHTML += `
-        <h2>${pet.name}</h2>
-        <img src="${pet.imageUrl}">
-        <p>${pet.color}</p>
-        <p>${pet.specialSkill}</p>
-        <h4>${pet.type}<h4>
-      `
-      outEl.innerHTML += "<hr/>";
-    });
-  });*/
-
-    /*const outEl = document.querySelector("#output");
-  outEl.innerHTML = "<h1>Pet Adoption</h1>";*/
-
-  /*
-  pets.forEach(pet => {
-    outEl.innerHTML += `
+pets.forEach(pet => {
+  outEl.innerHTML += `
+    <div class="card">
       <h2>${pet.name}</h2>
       <img src="${pet.imageUrl}">
       <p>${pet.color}</p>
       <p>${pet.specialSkill}</p>
       <h4>${pet.type}<h4>
-    `;
-    outEl.innerHTML += "<hr/>";
-  });*/
+    </div>
+  `
+  outEl.innerHTML += "<hr/>";
+});
 
-const filterSelection = (selection) => {
+// Display all pets when 'Show all' button is clicked
+displayAll = () => {
   const outEl = document.querySelector("#output");
   outEl.innerHTML = "<h1>Pet Adoption</h1>";
 
-  if(selection === 'cat') {
-    pets.forEach(pet => {
-      if (pet.type === 'cat') {
-        outEl.innerHTML += `
-          <h2>${pet.name}</h2>
-          <img src="${pet.imageUrl}">
-          <p>${pet.color}</p>
-          <p>${pet.specialSkill}</p>
-          <h4>${pet.type}<h4>
-        `
-        outEl.innerHTML += "<hr/>";
-      }
-    });
-  } else if (selection === 'dog') {
-    pets.forEach(pet => {
-      if (pet.type === 'dog') {
-        outEl.innerHTML += `
-          <h2>${pet.name}</h2>
-          <img src="${pet.imageUrl}">
-          <p>${pet.color}</p>
-          <p>${pet.specialSkill}</p>
-          <h4>${pet.type}<h4>
-        `
-        outEl.innerHTML += "<hr/>";
-      }
-    });
-  }
+  pets.forEach(pet => {
+    outEl.innerHTML += `
+    <div class="card">
+      <h2>${pet.name}</h2>
+      <img src="${pet.imageUrl}">
+      <p>${pet.color}</p>
+      <p>${pet.specialSkill}</p>
+      <h4>${pet.type}<h4>
+    </div>
+    `
+    outEl.innerHTML += "<hr/>";
+  });
 }
+
+// Display cats when 'Cats' button is clicked
+displayCats = () => {
+  const outEl = document.querySelector("#output");
+  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+
+  pets.forEach(pet => {
+    if (pet.type === 'cat') {
+      outEl.innerHTML += `
+      <div class="card">
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p>${pet.color}</p>
+        <p>${pet.specialSkill}</p>
+        <h4>${pet.type}<h4>
+      </div>
+    `
+    outEl.innerHTML += "<hr/>";
+    }
+  });
+}
+
+// Display dogs when 'Dogs' button is clicked
+displayDogs = () => {
+  const outEl = document.querySelector("#output");
+  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+
+  pets.forEach(pet => {
+    if (pet.type === 'dog') {
+      outEl.innerHTML += `
+      <div class="card">
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p>${pet.color}</p>
+        <p>${pet.specialSkill}</p>
+        <h4>${pet.type}<h4>
+      </div>
+    `
+    outEl.innerHTML += "<hr/>";
+    }
+  });
+}
+
+// Display dinos when 'Dinos' button is clicked
+displayDinos = () => {
+  const outEl = document.querySelector("#output");
+  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+
+  pets.forEach(pet => {
+    if (pet.type === 'dino') {
+      outEl.innerHTML += `
+      <div class="card">
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p>${pet.color}</p>
+        <p>${pet.specialSkill}</p>
+        <h4>${pet.type}<h4>
+      </div>
+    `
+    outEl.innerHTML += "<hr/>";
+    }
+  });
+}
+
+document.getElementById("allBtn").addEventListener("click", displayAll);
+document.getElementById("catBtn").addEventListener("click", displayCats);
+document.getElementById("dogBtn").addEventListener("click", displayDogs);
+document.getElementById("dinoBtn").addEventListener("click", displayDinos);

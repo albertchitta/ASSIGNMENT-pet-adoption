@@ -1,28 +1,101 @@
-.container {
-  overflow: hidden;
+.btnContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-/* The "show" class is added to the filtered elements */
-.show {
-  display: block;
-}
-
-/* Style the buttons */
-.btn {
+/* Style the 'Show all' button */
+#allBtn {
   border: none;
   outline: none;
   padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-/* Add a light grey background on mouse-over */
-.btn:hover {
-  background-color: #ddd;
-}
-
-/* Add a dark background to the active button */
-.btn.active {
-  background-color: #666;
+  background-color: rgb(92, 9, 226);
   color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 100px;
+  width: 100px;
+  font-size: large;
+}
+
+/* Style the 'Cats' button */
+#catBtn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: rgb(0, 132, 214);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 100px;
+  font-size: large;
+}
+
+/* Style the 'Dogs' button */
+#dogBtn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: rgb(49, 165, 54);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 100px;
+  font-size: large;
+}
+
+/* Style the 'Dinos' button */
+#dinoBtn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: rgb(223, 164, 37);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 100px;
+  font-size: large;
+}
+
+/* Add a dark purple background on mouse-over */
+#allBtn:hover {
+  background-color: rgb(67, 7, 163);
+}
+
+/* Add a dark blue background on mouse-over */
+#catBtn:hover {
+  background-color: rgb(4, 96, 153);
+}
+
+/* Add a dark-green background on mouse-over */
+#dogBtn:hover {
+  background-color: rgb(36, 122, 40);
+}
+
+/* Add a dark orange background on mouse-over */
+#dinoBtn:hover {
+  background-color: rgb(160, 119, 31);
+}
+/*
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  top: 0px;
+  left: 0px;
+  margin: 0 auto;
+  max-width: 1400px;
+}*/
+
+/* Add card to each pet */
+.card {
+  box-shadow: 10px 10px 5px gray;
+  border: 1px solid lightblue;
+  margin: 10px;
+  padding: 10px;
+  min-width: 350px;
+  font-family: 'Open Sans', sans-serif;
 }
