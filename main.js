@@ -210,3 +210,77 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+/*
+  const cats = pets.filter(pet => {
+    let isCat = false;
+
+    if (pet.type === "cat") {
+      isCat = true;
+    }
+
+    return isCat;
+  })
+
+  cats.forEach(cat => {
+    const outEl = document.querySelector("#output");
+    outEl.innerHTML = "<h1>Pet Adoption</h1>";
+
+    pets.forEach(pet => {
+      outEl.innerHTML += `
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p>${pet.color}</p>
+        <p>${pet.specialSkill}</p>
+        <h4>${pet.type}<h4>
+      `
+      outEl.innerHTML += "<hr/>";
+    });
+  });*/
+
+    /*const outEl = document.querySelector("#output");
+  outEl.innerHTML = "<h1>Pet Adoption</h1>";*/
+
+  /*
+  pets.forEach(pet => {
+    outEl.innerHTML += `
+      <h2>${pet.name}</h2>
+      <img src="${pet.imageUrl}">
+      <p>${pet.color}</p>
+      <p>${pet.specialSkill}</p>
+      <h4>${pet.type}<h4>
+    `;
+    outEl.innerHTML += "<hr/>";
+  });*/
+
+const filterSelection = (selection) => {
+  const outEl = document.querySelector("#output");
+  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+
+  if(selection === 'cat') {
+    pets.forEach(pet => {
+      if (pet.type === 'cat') {
+        outEl.innerHTML += `
+          <h2>${pet.name}</h2>
+          <img src="${pet.imageUrl}">
+          <p>${pet.color}</p>
+          <p>${pet.specialSkill}</p>
+          <h4>${pet.type}<h4>
+        `
+        outEl.innerHTML += "<hr/>";
+      }
+    });
+  } else if (selection === 'dog') {
+    pets.forEach(pet => {
+      if (pet.type === 'dog') {
+        outEl.innerHTML += `
+          <h2>${pet.name}</h2>
+          <img src="${pet.imageUrl}">
+          <p>${pet.color}</p>
+          <p>${pet.specialSkill}</p>
+          <h4>${pet.type}<h4>
+        `
+        outEl.innerHTML += "<hr/>";
+      }
+    });
+  }
+}
