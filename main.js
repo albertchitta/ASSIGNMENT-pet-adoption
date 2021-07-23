@@ -211,46 +211,10 @@ const pets = [
     }
   ];
 
-// Display all pets by default
-const outEl = document.querySelector("#output");
-outEl.innerHTML = "<h1>Pet Adoption</h1>";
-
-pets.forEach(pet => {
-  outEl.innerHTML += `
-    <div class="card">
-      <h2>${pet.name}</h2>
-      <img src="${pet.imageUrl}">
-      <p>${pet.color}</p>
-      <p>${pet.specialSkill}</p>
-      <h4>${pet.type}<h4>
-    </div>
-  `
-  outEl.innerHTML += "<hr/>";
-});
-
 // Display all pets when 'Show all' button is clicked
 displayAll = () => {
-  const outEl = document.querySelector("#output");
-  outEl.innerHTML = "<h1>Pet Adoption</h1>";
-
-  pets.forEach(pet => {
-    outEl.innerHTML += `
-    <div class="card">
-      <h2>${pet.name}</h2>
-      <img src="${pet.imageUrl}">
-      <p>${pet.color}</p>
-      <p>${pet.specialSkill}</p>
-      <h4>${pet.type}<h4>
-    </div>
-    `
-    outEl.innerHTML += "<hr/>";
-  });
-}
-
-// Display cats when 'Cats' button is clicked
-displayCats = () => {
-  const outEl = document.querySelector("#output");
-  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+  const outEl = document.querySelector(".cardContainer");
+  outEl.innerHTML = "";
 
   pets.forEach(pet => {
     if (pet.type === 'cat') {
@@ -258,20 +222,59 @@ displayCats = () => {
       <div class="card">
         <h2>${pet.name}</h2>
         <img src="${pet.imageUrl}">
-        <p>${pet.color}</p>
-        <p>${pet.specialSkill}</p>
-        <h4>${pet.type}<h4>
+        <p class="petColor">${pet.color}</p>
+        <p class="petSkill">${pet.specialSkill}</p>
+        <h4 class="catBanner">${pet.type}</h4>
       </div>
     `
-    outEl.innerHTML += "<hr/>";
+    } else if (pet.type === 'dog') {
+        outEl.innerHTML += `
+        <div class="card">
+          <h2>${pet.name}</h2>
+          <img src="${pet.imageUrl}">
+          <p class="petColor">${pet.color}</p>
+          <p class="petSkill">${pet.specialSkill}</p>
+          <h4 class="dogBanner">${pet.type}</h4>
+        </div>
+      `
+    } else {
+      outEl.innerHTML += `
+      <div class="card">
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p class="petColor">${pet.color}</p>
+        <p class="petSkill">${pet.specialSkill}</p>
+        <h4 class="dinoBanner">${pet.type}</h4>
+      </div>
+      `
+    }
+  });
+}
+
+// Display cats when 'Cats' button is clicked
+displayCats = () => {
+  const outEl = document.querySelector(".cardContainer");
+  outEl.innerHTML = "";
+
+  pets.forEach(pet => {
+    if (pet.type === 'cat') {
+      outEl.innerHTML += `
+      <div class="card">
+        <h2>${pet.name}</h2>
+        <img src="${pet.imageUrl}">
+        <p class="petColor">${pet.color}</p>
+        <p class="petSkill">${pet.specialSkill}</p>
+        <h4 class="catBanner">${pet.type}</h4>
+      </div>
+    `
     }
   });
 }
 
 // Display dogs when 'Dogs' button is clicked
 displayDogs = () => {
-  const outEl = document.querySelector("#output");
-  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+  const outEl = document.querySelector(".cardContainer");
+  outEl.innerHTML = "";
 
   pets.forEach(pet => {
     if (pet.type === 'dog') {
@@ -279,20 +282,19 @@ displayDogs = () => {
       <div class="card">
         <h2>${pet.name}</h2>
         <img src="${pet.imageUrl}">
-        <p>${pet.color}</p>
-        <p>${pet.specialSkill}</p>
-        <h4>${pet.type}<h4>
+        <p class="petColor">${pet.color}</p>
+        <p class="petSkill">${pet.specialSkill}</p>
+        <h4 class="dogBanner">${pet.type}</h4>
       </div>
     `
-    outEl.innerHTML += "<hr/>";
     }
   });
 }
 
 // Display dinos when 'Dinos' button is clicked
 displayDinos = () => {
-  const outEl = document.querySelector("#output");
-  outEl.innerHTML = "<h1>Pet Adoption</h1>";
+  const outEl = document.querySelector(".cardContainer");
+  outEl.innerHTML = "";
 
   pets.forEach(pet => {
     if (pet.type === 'dino') {
@@ -300,15 +302,20 @@ displayDinos = () => {
       <div class="card">
         <h2>${pet.name}</h2>
         <img src="${pet.imageUrl}">
-        <p>${pet.color}</p>
-        <p>${pet.specialSkill}</p>
-        <h4>${pet.type}<h4>
+        <p class="petColor">${pet.color}</p>
+        <p class="petSkill">${pet.specialSkill}</p>
+        <h4 class="dinoBanner">${pet.type}</h4>
       </div>
     `
-    outEl.innerHTML += "<hr/>";
     }
   });
 }
+
+// Display all pets by default
+const outEl = document.querySelector(".cardContainer");
+outEl.innerHTML = "";
+
+displayAll();
 
 document.getElementById("allBtn").addEventListener("click", displayAll);
 document.getElementById("catBtn").addEventListener("click", displayCats);
