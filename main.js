@@ -4,7 +4,8 @@ const pets = [
       color: "Green",
       specialSkill: "Gives sincere apologies.",
       type: "cat",
-      imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg"
+      imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
+      isAvail: true
     },
     {
       name: "Trouble",
@@ -221,6 +222,7 @@ displayAll = () => {
       outEl.innerHTML += `
       <div class="card">
         <h2>${pet.name}</h2>
+        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
@@ -231,6 +233,7 @@ displayAll = () => {
         outEl.innerHTML += `
         <div class="card">
           <h2>${pet.name}</h2>
+          <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
           <img src="${pet.imageUrl}">
           <p class="petColor">${pet.color}</p>
           <p class="petSkill">${pet.specialSkill}</p>
@@ -241,6 +244,7 @@ displayAll = () => {
       outEl.innerHTML += `
       <div class="card">
         <h2>${pet.name}</h2>
+        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
@@ -261,6 +265,7 @@ displayCats = () => {
       outEl.innerHTML += `
       <div class="card">
         <h2>${pet.name}</h2>
+        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
@@ -281,6 +286,7 @@ displayDogs = () => {
       outEl.innerHTML += `
       <div class="card">
         <h2>${pet.name}</h2>
+        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
@@ -301,6 +307,7 @@ displayDinos = () => {
       outEl.innerHTML += `
       <div class="card">
         <h2>${pet.name}</h2>
+        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
