@@ -1,4 +1,4 @@
-.btnContainer {
+#buttonContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -6,7 +6,7 @@
 }
 
 /* Style the 'Show all' button */
-#allBtn {
+#all {
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -20,7 +20,7 @@
 }
 
 /* Style the 'Cats' button */
-#catBtn {
+#cat {
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -34,7 +34,7 @@
 }
 
 /* Style the 'Dogs' button */
-#dogBtn {
+#dog {
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -48,7 +48,7 @@
 }
 
 /* Style the 'Dinos' button */
-#dinoBtn {
+#dino {
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -101,7 +101,7 @@
   background-color: darkred;
 }
 
-.cardContainer {
+#cardContainer {
   display: flex;
   flex-wrap: wrap;
   top: 0px;

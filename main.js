@@ -5,7 +5,6 @@ const pets = [
       specialSkill: "Gives sincere apologies.",
       type: "cat",
       imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
-      isAvail: true
     },
     {
       name: "Trouble",
@@ -212,119 +211,74 @@ const pets = [
     }
   ];
 
-// Display all pets when 'Show all' button is clicked
-displayAll = () => {
-  const outEl = document.querySelector(".cardContainer");
-  outEl.innerHTML = "";
+// Render to Dom
+const renderToDom = (divId, textToPrint) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToPrint;
+};
 
-  pets.forEach(pet => {
-    if (pet.type === 'cat') {
-      outEl.innerHTML += `
+// Display buttons on the DOM
+const buttons = () => {
+  const domString = `
+    <button type="button" class="btn btn-primary active" data-bs-toggle="button" autocomplete="off" aria-pressed="true" id="all">Show All</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off" id="cat">Cats</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off" id="dog">Dogs</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off" id="dino">Dinos</button>
+  `;
+
+  renderToDom("#buttonContainer", domString);
+};
+
+// Handles the button events
+const buttonEvents = () => {
+  document.querySelector("#buttonContainer").addEventListener("click", handleButtonClick);
+};
+
+// Filters the pets
+const filterPets = (petArray, type) => {
+  return petArray.filter(petObj => petObj.type === type);
+};
+
+// Handles the button click
+const handleButtonClick = (event) => {
+  if (event.target.id === "all") {
+    petBuilder(pets);
+  }
+  if (event.target.id === "cat") {
+    petBuilder(filterPets(pets, event.target.id));
+  }
+  if (event.target.id === "dog") {
+    petBuilder(filterPets(pets, event.target.id));
+  }
+  if (event.target.id === "dino") {
+    petBuilder(filterPets(pets, event.target.id));
+  }
+};
+
+// Builds a page of pets from an array
+const petBuilder = (petsArray) => {
+  let domString = "";
+  petsArray.forEach((pet) => {
+    domString += `
       <div class="card">
         <h2>${pet.name}</h2>
         <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-        <img src="${pet.imageUrl}">
+        <img src="${pet.imageUrl}" alt="${pet.name}, ${pet.type}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
         <h4 class="catBanner">${pet.type}</h4>
       </div>
-    `
-    } else if (pet.type === 'dog') {
-        outEl.innerHTML += `
-        <div class="card">
-          <h2>${pet.name}</h2>
-          <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-          <img src="${pet.imageUrl}">
-          <p class="petColor">${pet.color}</p>
-          <p class="petSkill">${pet.specialSkill}</p>
-          <h4 class="dogBanner">${pet.type}</h4>
-        </div>
-      `
-    } else {
-      outEl.innerHTML += `
-      <div class="card">
-        <h2>${pet.name}</h2>
-        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-        <img src="${pet.imageUrl}">
-        <p class="petColor">${pet.color}</p>
-        <p class="petSkill">${pet.specialSkill}</p>
-        <h4 class="dinoBanner">${pet.type}</h4>
-      </div>
-      `
-    }
+     `
   });
-}
 
-// Display cats when 'Cats' button is clicked
-displayCats = () => {
-  const outEl = document.querySelector(".cardContainer");
-  outEl.innerHTML = "";
+  renderToDom("#cardContainer", domString);
+};
 
-  pets.forEach(pet => {
-    if (pet.type === 'cat') {
-      outEl.innerHTML += `
-      <div class="card">
-        <h2>${pet.name}</h2>
-        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-        <img src="${pet.imageUrl}">
-        <p class="petColor">${pet.color}</p>
-        <p class="petSkill">${pet.specialSkill}</p>
-        <h4 class="catBanner">${pet.type}</h4>
-      </div>
-    `
-    }
-  });
-}
+// This starts the App
+const init = () => {
+  buttons();
+  buttonEvents();
+  petBuilder(pets);
+};
 
-// Display dogs when 'Dogs' button is clicked
-displayDogs = () => {
-  const outEl = document.querySelector(".cardContainer");
-  outEl.innerHTML = "";
-
-  pets.forEach(pet => {
-    if (pet.type === 'dog') {
-      outEl.innerHTML += `
-      <div class="card">
-        <h2>${pet.name}</h2>
-        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-        <img src="${pet.imageUrl}">
-        <p class="petColor">${pet.color}</p>
-        <p class="petSkill">${pet.specialSkill}</p>
-        <h4 class="dogBanner">${pet.type}</h4>
-      </div>
-    `
-    }
-  });
-}
-
-// Display dinos when 'Dinos' button is clicked
-displayDinos = () => {
-  const outEl = document.querySelector(".cardContainer");
-  outEl.innerHTML = "";
-
-  pets.forEach(pet => {
-    if (pet.type === 'dino') {
-      outEl.innerHTML += `
-      <div class="card">
-        <h2>${pet.name}</h2>
-        <button id="deleteBtn"><i class="fa fa-close"></i> Delete</button>
-        <img src="${pet.imageUrl}">
-        <p class="petColor">${pet.color}</p>
-        <p class="petSkill">${pet.specialSkill}</p>
-        <h4 class="dinoBanner">${pet.type}</h4>
-      </div>
-    `
-    }
-  });
-}
-
-// Display all pets by default
-const outEl = document.querySelector(".cardContainer");
-outEl.innerHTML = "";
-
-displayAll();
-
-document.getElementById("allBtn").addEventListener("click", displayAll);
-document.getElementById("catBtn").addEventListener("click", displayCats);
-document.getElementById("dogBtn").addEventListener("click", displayDogs);
-document.getElementById("dinoBtn").addEventListener("click", displayDinos);
+init();
