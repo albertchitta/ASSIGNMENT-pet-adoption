@@ -1,4 +1,4 @@
-#buttonContainer {
+.buttonStyles {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -62,15 +62,15 @@
 }
 
 /* Add 'Delete' button to each card */
-#deleteBtn {
-  margin: -30px auto;
+.delete {
+  bottom: 5px;
   right: 5px;
   border: none;
   outline: none;
   padding: 10px 12px;
   background-color: red;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   cursor: pointer;
   border-radius: 5px;
   position: absolute;
@@ -78,30 +78,30 @@
 }
 
 /* Add a dark purple background on mouse-over */
-#allBtn:hover {
+#all:hover {
   background-color: rgb(67, 7, 163);
 }
 
 /* Add a dark blue background on mouse-over */
-#catBtn:hover {
+#cat:hover {
   background-color: rgb(4, 96, 153);
 }
 
 /* Add a dark-green background on mouse-over */
-#dogBtn:hover {
+#dog:hover {
   background-color: rgb(36, 122, 40);
 }
 
 /* Add a dark orange background on mouse-over */
-#dinoBtn:hover {
+#dino:hover {
   background-color: rgb(160, 119, 31);
 }
 
-#deleteBtn:hover {
+.delete:hover {
   background-color: darkred;
 }
 
-#cardContainer {
+.cardStyles {
   display: flex;
   flex-wrap: wrap;
   top: 0px;
