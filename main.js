@@ -200,7 +200,7 @@ const pets = [
     color: "Green",
     specialSkill: "Gives hugs with appropriate pressure and for the right length of time.",
     type: "cat",
-    imageUrl: "http://img.izismile.com/img/img2/20090219/cats_02.jpg"
+    imageUrl: "https://img.izismile.com/img/img2/20090219/cats_02.jpg"
   },
   {
     name: "Lucy",
@@ -210,6 +210,8 @@ const pets = [
     imageUrl: "https://dinoanimals.com/wp-content/uploads/2020/07/Iguanodon-2.jpg"
   }
 ];
+
+let currentPage = "all";
 
 // Render to Dom
 const renderToDom = (divId, textToPrint) => {
@@ -236,14 +238,30 @@ const filterPets = (petArray, type) => {
 
 // Deletes the pet card
 const deletePet = (event) => {
-  const targetType = event.target.type;
   const targetId = event.target.id;
-  
-  if (targetType === "button") {
-    pets.splice(targetId, 1);
-    petBuilder(pets);
+  const targetType = event.target.type;
+
+  if (currentPage !== "all" && targetType === "button") {
+    const tempArray = pets.filter(pet => pet.type === currentPage);
+    for (let i = 0; i < pets.length; i++) {
+      if (pets[i] === tempArray[targetId]) {
+        console.log(pets[i]);
+        console.log(tempArray[targetId]);
+        tempArray.splice(targetId, 1);
+        pets.splice(i, 1);
+        console.log(pets.length);
+        petBuilder(tempArray);
+        break;
+      }
+    }
+  } else {
+    if (targetType === "button") {
+      pets.splice(targetId, 1);
+      console.log(pets.length);
+      petBuilder(pets);
+    }
   }
-}
+};
 
 // Handles the button click
 const handleButtonClick = (event) => {
@@ -251,12 +269,15 @@ const handleButtonClick = (event) => {
     petBuilder(pets);
   }
   if (event.target.id === "cat") {
+    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
   if (event.target.id === "dog") {
+    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
   if (event.target.id === "dino") {
+    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
 };

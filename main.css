@@ -145,11 +145,14 @@ h2 {
 }
 
 img {
+  border: 3px solid lightgray;
   display: block;
   margin: 30px auto 10px auto;
-  width: 100%;
+  padding: 20px;
+  width: 80%;
   height: 200px;
   object-fit: contain; /*prevents stretch */
+  border-radius: 5px;
 }
 
 .petColor {
