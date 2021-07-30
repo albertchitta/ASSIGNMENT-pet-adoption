@@ -211,12 +211,21 @@ const pets = [
   }
 ];
 
+// Global variable for knowing what page is currently active
 let currentPage = "all";
 
 // Render to Dom
 const renderToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
+};
+
+const heading = () => {
+  const domString = `
+    <h1>Pet Adoption</h1>
+  `;
+
+  renderToDom("#heading", domString);
 };
 
 // Display buttons on the DOM
@@ -241,43 +250,35 @@ const deletePet = (event) => {
   const targetId = event.target.id;
   const targetType = event.target.type;
 
-  if (currentPage !== "all" && targetType === "button") {
-    const tempArray = pets.filter(pet => pet.type === currentPage);
-    for (let i = 0; i < pets.length; i++) {
-      if (pets[i] === tempArray[targetId]) {
-        console.log(pets[i]);
-        console.log(tempArray[targetId]);
-        tempArray.splice(targetId, 1);
-        pets.splice(i, 1);
-        console.log(pets.length);
-        petBuilder(tempArray);
-        break;
+  if (currentPage !== "all" && targetType === "button") {   // Check if the pets have been filtered and the delete button was pressed
+    const tempArray = pets.filter(pet => pet.type === currentPage);   // Filter the pets again and assign it to a temporary array
+    for (let i = 0; i < pets.length; i++) {   
+      if (pets[i] === tempArray[targetId]) {    // Loop through the main array to find the pet in the filtered array
+        tempArray.splice(targetId, 1);    // Delete the pet from the filtered array
+        pets.splice(i, 1);    // Delete the pet from the main array
+        petBuilder(tempArray);    // Rebuild the filtered page
+        break;    // Break out of the loop
       }
     }
-  } else {
-    if (targetType === "button") {
-      pets.splice(targetId, 1);
-      console.log(pets.length);
-      petBuilder(pets);
-    }
+  } else if (targetType === "button") {   // Check if the pets were not filtered and the delete button was pressed
+    pets.splice(targetId, 1);   // Delete the pet from the main array
+    petBuilder(pets);   // Rebuild the main page
   }
 };
 
 // Handles the button click
 const handleButtonClick = (event) => {
+  currentPage = event.target.id;    // Assign global variable to the active page
   if (event.target.id === "all") {
     petBuilder(pets);
   }
   if (event.target.id === "cat") {
-    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
   if (event.target.id === "dog") {
-    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
   if (event.target.id === "dino") {
-    currentPage = event.target.id;
     petBuilder(filterPets(pets, event.target.id));
   }
 };
@@ -333,6 +334,7 @@ const buttonEvents = () => {
 
 // This starts the App
 const init = () => {
+  heading();
   buttons();
   buttonEvents();
   petBuilder(pets);

@@ -198,3 +198,10 @@ img {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  padding: 20px;
+  color: #303F9F;
+}
