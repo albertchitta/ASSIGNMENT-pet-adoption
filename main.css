@@ -63,18 +63,17 @@
 
 /* Add 'Delete' button to each card */
 .delete {
-  bottom: 5px;
-  right: 5px;
+  display: block;
   border: none;
   outline: none;
   padding: 10px 12px;
+  width: 75px;
   background-color: red;
   color: white;
   font-size: 12px;
   cursor: pointer;
   border-radius: 5px;
-  position: absolute;
-  min-width: 70px;
+  margin: auto auto 20px auto;
 }
 
 /* Add a dark purple background on mouse-over */
@@ -163,7 +162,7 @@ img {
 .petSkill {
   text-align: center;
   margin: auto;
-  height: 100px;
+  height: 80px;
 }
 
 .catBanner {
