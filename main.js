@@ -291,10 +291,10 @@ const petBuilder = (petsArray) => {
       domString += `
       <div class="card">
         <h2>${pet.name}</h2>
-        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}" alt="${pet.name}, ${pet.type}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
+        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <h4 class="catBanner">${pet.type}</h4>
       </div>
      `;
@@ -302,10 +302,10 @@ const petBuilder = (petsArray) => {
       domString += `
       <div class="card">
         <h2>${pet.name}</h2>
-        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}" alt="${pet.name}, ${pet.type}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
+        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <h4 class="dogBanner">${pet.type}</h4>
       </div>
      `;
@@ -313,10 +313,10 @@ const petBuilder = (petsArray) => {
       domString += `
       <div class="card">
         <h2>${pet.name}</h2>
-        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <img src="${pet.imageUrl}" alt="${pet.name}, ${pet.type}">
         <p class="petColor">${pet.color}</p>
         <p class="petSkill">${pet.specialSkill}</p>
+        <button type="button" id="${i}" class="delete"><i class="fa fa-close"></i> Delete</button>
         <h4 class="dinoBanner">${pet.type}</h4>
       </div>
      `;
